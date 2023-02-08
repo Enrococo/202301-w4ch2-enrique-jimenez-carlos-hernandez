@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import GuessLetters from "./components/GuessLetters/GuessLetters";
 import Hangman from "./components/Hangman/Hangman";
@@ -6,16 +7,23 @@ import Result from "./components/Result/Result";
 import UsedLetters from "./components/UsedLetters/UsedLetters";
 
 function App() {
+  const [letters, updateLetters] = useState<string[]>([]);
+
+  const updateUsedLetters = (letter: string) => {
+    if (letters.indexOf(letter) === -1) {
+      updateLetters([...letters, letter]);
+    }
+  };
   return (
     <>
       <div className="container">
         <div className="main-container">
-          <UsedLetters />
+          <UsedLetters letters={letters} />
           <Hangman />
         </div>
         <GuessLetters />
         <Result />
-        <Letters />
+        <Letters onUpdate={updateUsedLetters} />
       </div>
     </>
   );

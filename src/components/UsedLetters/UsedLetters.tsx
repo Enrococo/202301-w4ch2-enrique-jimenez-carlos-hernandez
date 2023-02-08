@@ -1,14 +1,21 @@
 import "./UsedLetters.css";
-import { usedLetters } from "../Letters/Letters";
+import { FC } from "react";
 
-const UsedLetters = () => {
+interface UsedLettersProps {
+  letters: string[];
+}
+
+const UsedLetters: FC<UsedLettersProps> = ({ letters }) => {
   return (
     <section className="used-letters-container">
       <h2>Used letters</h2>
       <ul className="used-letters">
-        <li className="used-letter">{usedLetters}</li>
-        <li className="used-letter">A,&nbsp;</li>
-        <li className="used-letter">B</li>
+        {letters.map((letter, i) => (
+          <li key={letter} className="used-letters">
+            {letter}
+            {i < letters.length - 1 ? ", " : ""}
+          </li>
+        ))}
       </ul>
     </section>
   );
