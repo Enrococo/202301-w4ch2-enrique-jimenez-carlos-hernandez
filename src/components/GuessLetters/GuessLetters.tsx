@@ -1,13 +1,19 @@
+import { FC } from "react";
 import "./GuessLetters.css";
 
-const GuessLetters = () => {
+interface GuessLettersProps {
+  partialHiddenWord: string;
+}
+
+const GuessLetters: FC<GuessLettersProps> = ({ partialHiddenWord }) => {
+  const wordSplitted = partialHiddenWord.split("");
   return (
     <ul className="guess-letters">
-      <li className="guess-letter empty"></li>
-      <li className="guess-letter">A</li>
-      <li className="guess-letter empty"></li>
-      <li className="guess-letter">A</li>
-      <li className="guess-letter empty"></li>
+      {wordSplitted.map((letter, i) => (
+        <li key={i} className={`guess-letter ${letter === "_" ? "empty" : ""}`}>
+          {letter === "_" ? "" : letter.toUpperCase()}
+        </li>
+      ))}
     </ul>
   );
 };
