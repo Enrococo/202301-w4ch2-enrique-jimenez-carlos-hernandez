@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
 }
-.letter a {
+.letter span {
   text-decoration: none;
   color: inherit;
   font-size: 32px;
