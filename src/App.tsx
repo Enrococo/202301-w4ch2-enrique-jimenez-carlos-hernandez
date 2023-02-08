@@ -6,7 +6,7 @@ import Letters from "./components/Letters/Letters";
 import Result from "./components/Result/Result";
 import UsedLetters from "./components/UsedLetters/UsedLetters";
 
-const originalWord = "PASALACABRA";
+const originalWord = "JETAIME";
 
 function App() {
   const [letters, updateLetters] = useState<string[]>([]);
