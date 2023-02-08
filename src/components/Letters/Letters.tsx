@@ -22,6 +22,7 @@ const alphabetLetters = [
   "Q",
   "R",
   "S",
+  "T",
   "U",
   "V",
   "W",
